@@ -6,8 +6,9 @@
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Employee Wage Computation.");
-            Employee employee = new Employee();
-            employee.DailyWage();
+            Employee.ComputeEmployeeWage("Relience",20,20,100);
+            Employee.ComputeEmployeeWage("Nike", 2000, 22, 176);
+
         }
     }
 }
