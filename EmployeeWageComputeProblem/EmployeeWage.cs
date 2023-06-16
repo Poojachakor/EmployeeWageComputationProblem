@@ -6,27 +6,31 @@ using System.Threading.Tasks;
 
 namespace EmployeeWageComputeProblem
 {
-    public class EmployeeWage
+    public class EmployeeWage : EmployeeWageInterface
+
     {
         public const int IS_PART_TIME = 1;
         public const int IS_FULL_TIME = 2;
 
-        private List<CompanyEmpWage> CompanywageArr;
+        private List<CompanyEmployeeWage> CompanywageArr;
+        private Dictionary<string, CompanyEmployeeWage> getting;
 
         public EmployeeWage()
         {
-            CompanywageArr = new List<CompanyEmpWage>();
+            CompanywageArr = new List<CompanyEmployeeWage>();
+            getting = new Dictionary<string, CompanyEmployeeWage>();
         }
         public void addCompanies(string company, int Wage_Per_Hour, int Max_Days_IN_Month, int Max_HrsInMonth)
         {
-            CompanyEmpWage Emp = new CompanyEmpWage(company, Wage_Per_Hour, Max_Days_IN_Month, Max_HrsInMonth);
+            CompanyEmployeeWage Emp = new CompanyEmployeeWage(company, Wage_Per_Hour, Max_Days_IN_Month, Max_HrsInMonth);
             this.CompanywageArr.Add(Emp);
+            this.getting.Add(company, Emp);
 
         }
 
         public void EmpComputation()
         {
-            foreach (CompanyEmpWage Emp in this.CompanywageArr)
+            foreach (CompanyEmployeeWage Emp in this.CompanywageArr)
             {
                 Emp.setEmpWage(this.EmpComputation(Emp));
                 Console.WriteLine(Emp.Return());
@@ -34,14 +38,14 @@ namespace EmployeeWageComputeProblem
         }
 
 
-        private int EmpComputation(CompanyEmpWage emp)
+        private int EmpComputation(CompanyEmployeeWage emp)
         {
             int empHour = 0;
             int totalHours = 0;
             int totalDays = 0;
             int totalSallary = 0;
             Console.WriteLine();
-            Console.WriteLine("---------" + emp.company + "");
+            Console.WriteLine("--------" + emp.company + "--------");
 
             while (totalHours <= emp.Max_HrsInMonth && totalDays <= emp.Max_Days_IN_Month)
             {
@@ -78,7 +82,15 @@ namespace EmployeeWageComputeProblem
                 }
             }
             return emp.sallary;
+
         }
+        public int getTotalwage(string company)
+        {
+            return this.getting[company].sallary;
+
+        }
+
     }
 }
+
 

@@ -12,13 +12,16 @@
             //Employee.ComputeEmployeeWage("Relience", 20, 20, 100);
             //Employee.ComputeEmployeeWage("Nike", 2000, 22, 176);
 
-            EmployeeWage obj = new EmployeeWage();
+            EmployeeWage empwage = new EmployeeWage();
 
-            obj.addCompanies("Dmart", 20, 15, 90);
+            empwage.addCompanies("Dmart", 20, 15, 90);
 
-            obj.addCompanies("Relience", 45, 23, 150);
+            empwage.addCompanies("Relience", 45, 23, 150);
 
-            obj.EmpComputation();
+            empwage.EmpComputation();
+            Console.WriteLine("Total wage for Relience company : " + empwage.getTotalwage("Relience"));
+            //Console.WriteLine("Total wage for Damart Company : " + empwage.getTotalwage("Dmart"));
+
         }
     }
 }
