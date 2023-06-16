@@ -12,13 +12,13 @@
             //Employee.ComputeEmployeeWage("Relience", 20, 20, 100);
             //Employee.ComputeEmployeeWage("Nike", 2000, 22, 176);
 
-            EmployeeWage empwage = new EmployeeWage();
+            EmployeeWage employee = new EmployeeWage();
 
-            empwage.addCompanies("Damart", 20, 15, 90);
+            employee.addCompanies("Dmart", 20, 15, 90);
 
-            empwage.addCompanies("Relience", 45, 23, 150);
+            employee.addCompanies("Relience", 45, 23, 150);
 
-            empwage.EmpComputation();
+            employee.EmpComputation();
         }
 
     }
